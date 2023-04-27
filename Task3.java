@@ -22,10 +22,10 @@ public class Task3 {
         //find array average
         System.out.println("Average = " + Average(array));
 
-        //minimum
+        //maximum
         System.out.println("maximum(array) = " + maximum(array));
 
-        //maximum
+        //minimum
         System.out.println("minimum(array) = " + minimum(array));
     }
 
