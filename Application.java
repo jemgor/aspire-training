@@ -32,14 +32,39 @@ public class Application {
         System.out.println("greaterOrEqual10 = " + greaterOrEqual10);
 
 
-        System.out.println("less than 5:    " + Arrays.stream(arr)
-                .filter(value -> value < 5)
-                .boxed().toList());
-        System.out.println("between 5 and 10:   " + Arrays.stream(arr)
-                .filter(value -> { return value >= 5 && value < 10;})
-                .boxed().toList());
-        System.out.println("greater or equal 10:    " + Arrays.stream(arr)
-                .filter(value -> value >= 10)
-                .boxed().toList());
+        //        System.out.println("between 5 and 10:   " + Arrays.stream(arr)
+//                .filter(value -> { return value >= 5 && value < 10;})
+//                .boxed().toList());
+//        System.out.println("greater or equal 10:    " + Arrays.stream(arr)
+//                .filter(value -> value >= 10)
+//                .boxed().toList());
+
+//        System.out.println(
+//                Arrays.stream(arr)
+//                .filter(value -> {
+//                    if (value < 5) {
+//                        return true;
+//                    } else if (value >= 5 && value < 10) {
+//                        return true;
+//                    } else if (value >= 10) {
+//                        return true;
+//                    }
+//                    return false;
+//                })
+//                .boxed()
+//                .toList());
+
+        System.out.println(Arrays.stream(arr)
+                .boxed()
+                .collect(Collectors.groupingBy(value -> {
+                    if (value < 5) {
+                        return "\n Less than 5\t";
+                    } else if (value >= 5 && value < 10) {
+                        return "\nBetween 5 and 10\t";
+                    } else if (value >= 10) {
+                        return "\nGreater or equal to 10\t";
+                    }
+                    return false;
+                })));
     }
 }
